@@ -1,6 +1,6 @@
 # Sistema de Atención de Emergencias del Hospital
 
-Este proyecto implementa un sistema de colas con prioridad para atender pacientes en la emergencia de un hospital. Utiliza una estructura de datos de heap para manejar las prioridades de los pacientes de manera eficiente.
+Esta Hoja de Trabajo implementa un sistema de colas con prioridad para atender pacientes en la emergencia de un hospital. Utiliza una estructura de datos de heap para manejar las prioridades de los pacientes de manera eficiente.
 
 ## Características
 
