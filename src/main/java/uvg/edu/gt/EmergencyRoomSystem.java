@@ -6,8 +6,18 @@ import java.io.IOException;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
+
+/**
+ * Clase principal que maneja el sistema de atención de emergencias de un hospital.
+ * Permite seleccionar entre diferentes implementaciones de colas de prioridad para gestionar los pacientes.
+ */
 public class EmergencyRoomSystem {
 
+    /**
+     * Método principal que inicia el programa.
+     * 
+     * @param args Argumentos de la línea de comandos.
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Seleccione el tipo de Priority Queue a usar:");
@@ -33,12 +43,20 @@ public class EmergencyRoomSystem {
         scanner.close();
     }
 
+    /**
+     * Sistema de emergencia que utiliza la implementación personalizada de VectorHeap.
+     */
     private static void emergencySystemWithCustomVectorHeap() {
         VectorHeap<Paciente> heap = new VectorHeap<>();
         cargarPacientesEnCola(heap);
         atenderPacientes(heap);
     }
 
+    /**
+     * Carga los pacientes desde un archivo de texto en la cola de prioridad personalizada.
+     *
+     * @param heap La cola de prioridad personalizada donde se cargan los pacientes.
+     */
     private static void cargarPacientesEnCola(VectorHeap<Paciente> heap) {
         try (BufferedReader br = new BufferedReader(new FileReader("src\\main\\java\\uvg\\edu\\gt\\pacientes.txt"))) {
             String line;
@@ -56,6 +74,11 @@ public class EmergencyRoomSystem {
         }
     }
     
+    /**
+     * Atiende a los pacientes utilizando la cola de prioridad personalizada.
+     *
+     * @param heap La cola de prioridad personalizada de la que se atienden los pacientes.
+     */
     private static void atenderPacientes(VectorHeap<Paciente> heap) {
         while (!heap.isEmpty()) {
             Paciente paciente = heap.remove();
@@ -64,12 +87,20 @@ public class EmergencyRoomSystem {
         }
     }
 
+    /**
+     * Sistema de emergencia que utiliza la implementación de PriorityQueue de Java.
+     */
     private static void emergencySystemWithJavaPriorityQueue() {
         PriorityQueue<Paciente> queue = new PriorityQueue<>();
         cargarPacientesEnCola(queue);
         atenderPacientes(queue);
     }
 
+    /**
+     * Carga los pacientes desde un archivo de texto en la cola de prioridad de Java.
+     *
+     * @param cola La cola de prioridad de Java donde se cargan los pacientes.
+     */
     private static void cargarPacientesEnCola(java.util.PriorityQueue<Paciente> cola) {
         try (BufferedReader br = new BufferedReader(new FileReader("src\\main\\java\\uvg\\edu\\gt\\pacientes.txt"))) {
             String line;
@@ -87,6 +118,11 @@ public class EmergencyRoomSystem {
         }
     }
 
+    /**
+     * Atiende a los pacientes utilizando la cola de prioridad de Java.
+     *
+     * @param cola La cola de prioridad de Java de la que se atienden los pacientes.
+     */
     private static void atenderPacientes(java.util.PriorityQueue<Paciente> cola) {
         while (!cola.isEmpty()) {
             Paciente paciente = cola.poll();
