@@ -66,5 +66,12 @@ public class VectorHeap<E extends Comparable<E>>{
     public boolean isEmpty() {
         return heap.size() == 0;
     }
+
+    public E peek() {
+        if (!heap.isEmpty()) {
+            return heap.get(0);
+        }
+        return null; // o lanza una excepción si prefieres manejarlo de esa manera.
+    }
 }
 
